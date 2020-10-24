@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 100%;
   border-radius: $tdbc-border-radius;
-  background-color: #fff;
+  background-color: scale-color(tdbc-color("background"), $lightness: 10%);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 
   &__title {

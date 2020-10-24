@@ -74,10 +74,10 @@ a:not(.tdbc-button) {
 code:not([class*="language"]) {
   display: inline-flex;
   padding: 0.15em;
-  background-color: tdbc-color("light");
-  color: tdbc-color("gray");
+  background-color: scale-color(tdbc-color("background"), $lightness: 10%);
+  color: tdbc-color("light");
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  border: 1px solid scale-color(tdbc-color("gray"), $lightness: 50%);
+  border: 1px solid scale-color(tdbc-color("background"), $lightness: 50%);
   border-radius: 2px;
   font-size: 0.75em;
   line-height: 1.1;
