@@ -1,0 +1,5 @@
+{%- for episode in collections.episodes -%}
+  <li>
+    <a href="{{ episode.url }}">{{ episode.data.title }}</a>
+  </li>
+{%- endfor -%}

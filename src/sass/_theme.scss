@@ -1,5 +1,5 @@
-$tdbc-color-primary: #F3A712 !default;
-$tdbc-color-secondary: #8FB8DE !default;
+$tdbc-color-primary: #FF99B6 !default;
+$tdbc-color-secondary: #bbbbff !default;
 $tdbc-color-background: #29335C;
 
 $tdbc-brand-colors: (
@@ -15,9 +15,9 @@ $tdbc-colors: map-merge(
   (
     "text": $tdbc-color-body,
     "background": $tdbc-color-background,
+    "background-darker": scale-color($tdbc-color-background, $lightness: -20%),
     "light": #fff,
     "dark": rgba(black, 0.87),
-    "blue": scale-color(rgb(27, 129, 167), $lightness: 40%, $saturation: 50%),
     "gray": $tdbc-color-gray,
   )
 );
@@ -27,13 +27,13 @@ $tdbc-colors: map-merge(
 }
 
 // Add/remove to selectively generate `ink` (text color) classes
-$tdbc-ink-colors: "primary", "secondary", "text", "gray", "blue", "light", "dark" !default;
+$tdbc-ink-colors: "primary", "secondary", "text", "gray", "light", "dark" !default;
 
 // Add/remove to selectively generate `background` (text color) classes
-$tdbc-background-colors: "primary", "secondary", "background", "gray", "light" !default;
+$tdbc-background-colors: "primary", "secondary", "background", "darker", "gray", "light" !default;
 
 $tdbc-button-variants: "primary", "secondary", "light", "gray" !default;
-$tdbc-link-color: tdbc-color("blue") !default;
+$tdbc-link-color: tdbc-color("secondary") !default;
 $tdbc-border-radius: 8px !default;
 
 $tdbc-font-family: "Baloo 2", sans-serif;

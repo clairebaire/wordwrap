@@ -63,7 +63,7 @@
 
     &:hover,
     &:focus {
-      background-color: scale-color(tdbc-color("primary"), $lightness: 80%);
+      background-color: tdbc-color("darker");
     }
   }
 
@@ -100,7 +100,7 @@
         } @else {
           &:hover,
           &:focus {
-            background-color: scale-color($color, $lightness: 90%);
+            background-color: scale-color($color, $lightness: 40%);
           }
         }
       }

@@ -8,13 +8,6 @@ body {
   font-family: $tdbc-font-family;
 }
 
-// stylelint-disable selector-max-type, selector-no-qualifying-type
-main,
-main.tdbc-container {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-}
-
 footer {
   margin-top: auto;
 }
@@ -66,10 +59,8 @@ ul.tdbc-column-container {
 
 .tdbc-hero {
   display: grid;
-  min-height: 40vh;
+  min-height: 20vh;
   place-content: center;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
   text-align: center;
 }
 
