@@ -1,5 +1,6 @@
 ---
 title: "About"
+tags: featured
 description: "Who are these people anyway?"
 ---
 

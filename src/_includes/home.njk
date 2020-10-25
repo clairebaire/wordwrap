@@ -63,7 +63,7 @@ templateEngineOverride: md, njk
   
   <div class="tdbc-section tdbc-mt-md">
     <ul class="tdbc-column-container">
-      {%- for page in collections.pages -%}
+      {%- for page in collections.featured -%}
       <li class="tdbc-card">
         <div class="tdbc-card__content">
           <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>

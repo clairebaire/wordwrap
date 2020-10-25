@@ -4,5 +4,5 @@ module.exports = {
   siteDescription:
     "Claire and Steph talk about a bunch of things relating to being developers in the 21st century.",
   authorName: "Stephanie Eckles & Claire Lipskey",
-  twitterUsername: "wordwrapped", // no `@`
+  twitterUsername: "wordwrapshow", // no `@`
 };

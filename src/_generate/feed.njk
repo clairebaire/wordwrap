@@ -1,4 +1,4 @@
----
+{# ---
 permalink: feed/feed.xml
 eleventyExcludeFromCollections: true
 ---
@@ -24,4 +24,4 @@ eleventyExcludeFromCollections: true
 		<content type="html">{{ page.templateContent | htmlToAbsoluteUrls(absolutePostUrl) }}</content>
 	</entry>
 	{%- endfor %}
-</feed>
+</feed> #}
