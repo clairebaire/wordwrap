@@ -4,5 +4,3 @@ description: "Words... wrapped into a nice little bow."
 tags: featured
 layout: "episodes.njk"
 ---
-
-Here's our episodes

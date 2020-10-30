@@ -15,14 +15,5 @@ layout: base.njk
   <article class="tdbc-mx-auto">
     {{ content | safe }}
   </article>
-  <ul>
-    {%- for episode in collections.episodes -%}
-      <li class="tdbc-card tdbc-my-md">
-        <div class="tdbc-card__content">
-          <a class="tdbc-card__title" href="{{ episode.url }}">Episode {{ episode.data.title }} ({{ episode.data.recordedDate }})</a>
-          <p>{{ episode.data.description }}</p>
-        </div>
-      </li>
-    {%- endfor -%}
-  </ul>  
+  {% include 'episode-list.njk' %}  
 </main>

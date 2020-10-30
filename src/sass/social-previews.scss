@@ -24,13 +24,16 @@
 // stylelint-disable
 
 body {
-  border: 3px solid tdbc-color("secondary");
+  background-color: tdbc-color("background");
+  color: $tdbc-color-body;
   display: grid;
   place-content: center;
   text-align: center;
   font-family: $tdbc-font-family;
+  padding: 0 2rem;
 
   h1 {
     font-size: 2.5rem;
+    color: $tdbc-color-primary;
   }
 }

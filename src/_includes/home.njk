@@ -27,7 +27,7 @@ templateEngineOverride: md, njk
     </span>
     <h1 class="tdbc-ink--primary tdbc-mb-none">{{ meta.siteName }}</h1>
     <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-md tdbc-mx-auto">
-      {{ meta.siteDescription }}
+      A podcast where {{ meta.siteDescription }}
     </h2>
   </div>
 </header>
@@ -61,17 +61,10 @@ templateEngineOverride: md, njk
     </ul>
   </div>
   
-  <div class="tdbc-section tdbc-mt-md">
-    <ul class="tdbc-column-container">
-      {%- for page in collections.featured -%}
-      <li class="tdbc-card">
-        <div class="tdbc-card__content">
-          <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
-          <p>{{ page.data.description }}</p>
-        </div>
-      </li>
-      {%- endfor -%}
-    </ul>
+  <div class="tdbc-section tdbc-mt-lg">
+  <h2 class="tdbc-ink--secondary">Episodes</h2>
+    {% set latest = true %}
+    {% include 'episode-list.njk' %}
   </div>
 
 {{ content | safe }}

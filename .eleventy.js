@@ -4,7 +4,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
-const packageVersion = require("./package.json").version;
+const { DateTime } = require("luxon");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -12,13 +12,15 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/sass/");
 
+  // TEMPORARY
+  eleventyConfig.addPassthroughCopy("./src/stings");
+
   eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/fonts");
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
-  eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
 
   eleventyConfig.addFilter("slug", (str) => {
     if (!str) {
@@ -45,6 +47,24 @@ module.exports = function (eleventyConfig) {
     return title;
   });
 
+  eleventyConfig.addFilter("postDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {
+      zone: "America/Chicago",
+    }).toLocaleString(DateTime.DATE_MED);
+  });
+
+  eleventyConfig.addFilter("latest", (array, n) => {
+    if (n < 0) {
+      return array.slice(n);
+    }
+
+    return array;
+  });
+
+  eleventyConfig.addFilter("toMins", (number) => {
+    return Math.ceil(number / 60);
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,
@@ -64,7 +84,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {
-    passthroughFileCopy: true,
     dir: {
       input: "src",
       output: "public",
