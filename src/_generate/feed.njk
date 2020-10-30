@@ -18,14 +18,14 @@ eleventyExcludeFromCollections: true
     />
     <itunes:category text="Technology"/>
     <itunes:explicit>false</itunes:explicit>
-		{%- for episode in collections.episodes %}
+		{%- for episode in collections.orderedEpisodes %}
 		{%- set absolutePostUrl %}{{ episode.url | url | absoluteUrl(meta.url) }}{% endset %}
     <item>
       <itunes:episodeType>full</itunes:episodeType>
 			<itunes:episode>{{ episode.data.episodeNumber }}</itunes:episode>
       <title>{{ episode.data.title  }}</title>
       <description>
-          <![CDATA[{{ episode.templateContent | safe | htmlToAbsoluteUrls(absolutePostUrl) }}]]>
+          <![CDATA[{{ episode.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}]]>
         </content:encoded>
       </description>
 			{#- length is in bytes #}
@@ -36,7 +36,7 @@ eleventyExcludeFromCollections: true
       />
       <guid>{{ absolutePostUrl }}</guid> 
       <link>{{ absolutePostUrl }}</link> 
-      <pubDate>{{ episode.date }}</pubDate>
+      <pubDate>{{ episode.date | pubDate }}</pubDate>
       <itunes:duration>{{ episode.data.lengthInSeconds }}</itunes:duration> {# seconds #}
       <itunes:explicit>false</itunes:explicit>
     </item>

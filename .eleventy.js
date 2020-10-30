@@ -53,6 +53,18 @@ module.exports = function (eleventyConfig) {
     }).toLocaleString(DateTime.DATE_MED);
   });
 
+  eleventyConfig.addFilter("pubDate", (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {
+      zone: "America/Chicago",
+    }).toHTTP();
+  });
+
+  eleventyConfig.addCollection("orderedEpisodes", function (collection) {
+    return collection.getFilteredByTag("episodes").sort((a, b) => {
+      return b.data.episodeNumber - a.data.episodeNumber;
+    });
+  });
+
   eleventyConfig.addFilter("latest", (array, n) => {
     if (n < 0) {
       return array.slice(n);
