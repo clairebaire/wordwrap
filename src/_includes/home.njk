@@ -42,7 +42,7 @@ templateEngineOverride: md, njk
       </div>
     </div>
   </div> #}
-  <div class="tdbc-section">
+  {# <div class="tdbc-section">
     <ul class="tdbc-column-container">
       <li class="tdbc-card">
         <div class="tdbc-card__content tdbc-text-align--center">
@@ -59,10 +59,10 @@ templateEngineOverride: md, njk
         </div>
       </li>
     </ul>
-  </div>
+  </div> #}
   
   <div class="tdbc-section tdbc-mt-lg">
-  <h2 class="tdbc-ink--secondary">Episodes</h2>
+    <h2 class="tdbc-ink--secondary">Episodes</h2>
     {% set latest = true %}
     {% include 'episode-list.njk' %}
   </div>
