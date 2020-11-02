@@ -26,7 +26,6 @@ eleventyExcludeFromCollections: true
       <title>{{ episode.data.title  }}</title>
       <description>
           <![CDATA[{{ episode.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}]]>
-        </content:encoded>
       </description>
 			{#- length is in bytes #}
       <enclosure 
