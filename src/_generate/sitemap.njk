@@ -5,14 +5,14 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for page in collections.all %}
-  {% set absoluteUrl %}{{ page.url | url | absoluteUrl(meta.url) }}{% endset %}
+  {%- set absoluteUrl %}{{ page.url | url | absoluteUrl(meta.url) }}{% endset %}
   <url>
     <loc>{{ absoluteUrl }}</loc>
-		{% if page.url == '/' %}
+		{%- if page.url == '/' %}
     <lastmod>{{ collections.all | rssLastUpdatedDate }}</lastmod>
-    {% else %}
+    {%- else %}
     <lastmod>{{ page.date | rssDate }}</lastmod>
-		{% endif %}
+		{%- endif %}
   </url>
 {%- endfor %}
 </urlset>

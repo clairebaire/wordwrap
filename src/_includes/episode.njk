@@ -1,22 +1,25 @@
 ---
 layout: base.njk
-permalink: "episodes/{{ page.fileSlug }}/index.html"
-tags: episodes
 ---
 
-{% include '../sitenav.njk' %}
+{% include 'sitenav.njk' %}
 
 <header class="tdbc-hero">
   <div class="tdbc-container">
-    <h1 class="tdbc-ink--primary tdbc-mb-none">Episode {{ title }}</h1>
+    <h1 class="tdbc-ink--primary tdbc-mb-none">{{ title }}</h1>
     <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-sm tdbc-mx-auto">
       {{ description }}
     </h2>
-    <p>{{ recordedDate }} | {{ length }}</p>
+    <p>Recorded: {{ date | postDate }} • {{ lengthInSeconds | toMins }} min</p>
   </div>
 </header>
 <main class="tdbc-container">
   <article class="tdbc-mx-auto">
     {{ content | safe }}
+
+    {# <audio controls>
+      <source src="{{ podcastUrl }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio> #}
   </article>
 </main>
