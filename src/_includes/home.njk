@@ -26,9 +26,19 @@ templateEngineOverride: md, njk
       &lt; <span class="logo__emoji">🎁</span> &gt;
     </span>
     <h1 class="tdbc-ink--primary tdbc-mb-none">{{ meta.siteName }}</h1>
-    <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-md tdbc-mx-auto">
+    <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-md tdbc-mx-auto" style="max-width: 50ch">
       A podcast where {{ meta.siteDescription }}
     </h2>
+  </div>
+  <div class="tdbc-row tdbc-row--center-content">
+    <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="https://podcasts.apple.com/us/podcast/word-wrap/id1539361688">
+      <img class="tdbc-button__icon" src="img/apple-podcasts.png" width="64" alt="Download on Apple Podcasts" />
+      Apple Podcasts
+    </a>
+    <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="/feed/feed.xml">
+      <img class="tdbc-button__icon" src="img/rss.svg" width="64" alt="" />
+      RSS
+    </a>
   </div>
 </header>
 <main class="tdbc-container">
@@ -42,17 +52,6 @@ templateEngineOverride: md, njk
       </div>
     </div>
   </div> #}
-  <div class="tdbc-section">
-    <ul class="tdbc-column-container">
-      <li class="tdbc-card">
-        <div class="tdbc-card__content tdbc-text-align--center">
-          <a class="tdbc-card__title tdbc-text-align--center" href="https://podcasts.apple.com/us/podcast/word-wrap/id1539361688">
-            <img src="img/apple-podcasts.svg" width="250" alt="Download on Apple Podcasts" />
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
   
   <div class="tdbc-section tdbc-mt-lg">
     <h2 class="tdbc-ink--secondary">Latest Episode</h2>
@@ -63,11 +62,3 @@ templateEngineOverride: md, njk
 {{ content | safe }}
 
 </main>
-
-{# <li class="tdbc-card">
-  <div class="tdbc-card__content tdbc-text-align--center">
-    <a class="tdbc-card__title tdbc-text-align--center" href="/">
-      <img src="img/spotify.png" width="145" alt="Download on Spotify" />
-    </a>
-  </div>
-</li> #}
