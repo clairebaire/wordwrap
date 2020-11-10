@@ -61,6 +61,14 @@ article {
       margin-top: 2rem;
     }
   }
+
+  p strong:only-child {
+    color: tdbc-color("secondary");
+    font-size: 1.5rem;
+    padding-left: 0.25em;
+    border-left: 2px solid currentColor;
+    margin-left: -0.25em;
+  }
 }
 
 strong {
@@ -92,9 +100,27 @@ pre code:not([class*="language"]) {
 blockquote {
   margin-left: 0;
   margin-right: 0;
-  padding-left: 1.5rem;
-  border-left: 2px solid tdbc-color("secondary");
-  color: tdbc-color("gray");
+  padding: 0;
+  color: tdbc-color("primary");
+  display: grid;
+  grid-template-columns: 3.25rem auto 3.25rem;
+  align-items: center;
+
+  &:before,
+  &:after {
+    font-size: 3rem;
+    color: tdbc-color("light");
+    line-height: 1;
+  }
+
+  &:before {
+    content: "<";
+  }
+
+  &:after {
+    content: ">";
+    justify-self: end;
+  }
 
   &,
   p {
@@ -103,6 +129,10 @@ blockquote {
 
   + * {
     margin-top: 3rem;
+  }
+
+  p {
+    margin-bottom: 0;
   }
 }
 
