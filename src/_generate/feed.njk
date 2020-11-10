@@ -28,7 +28,7 @@ eleventyExcludeFromCollections: true
 			<itunes:episode>{{ episode.data.episodeNumber }}</itunes:episode>
       <title>{{ episode.data.title  }}</title>
       <description>
-          <![CDATA[{{ episode.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}]]>
+          <![CDATA[{{ episode.data.extendedDescription | htmlToAbsoluteUrls(absolutePostUrl) | safe }}]]>
       </description>
 			{#- length is in bytes #}
       <enclosure 
