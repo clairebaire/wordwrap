@@ -1,5 +1,9 @@
 .tdbc-content-maxlength {
   max-width: 80ch;
+
+  &--small {
+    max-width: 50ch;
+  }
 }
 
 .tdbc-anchor {

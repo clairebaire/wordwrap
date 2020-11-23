@@ -22,6 +22,11 @@ h2,
 .tdbc-h2 {
   font-size: $tdbc-h2-font-size;
   font-size: unquote("min(max(2.5rem, 5vw), #{$tdbc-h2-font-size})");
+
+  small {
+    font-size: 0.6em;
+    vertical-align: middle;
+  }
 }
 
 h3,

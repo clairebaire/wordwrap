@@ -90,6 +90,20 @@ ul.tdbc-column-container {
   }
 }
 
+.tdbc-feature {
+  display: grid;
+  grid-gap: 2rem;
+  place-items: center;
+
+  @media (min-width: 60ch) {
+    grid-template-columns: min(20ch, 20vw) auto;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
 // stylelint-disable-next-line selector-max-type
 hr {
   margin-top: 4rem;

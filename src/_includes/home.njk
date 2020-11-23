@@ -26,22 +26,11 @@ templateEngineOverride: md, njk
       &lt; <span class="logo__emoji">🎁</span> &gt;
     </span>
     <h1 class="tdbc-ink--primary tdbc-mb-none">{{ meta.siteName }}</h1>
-    <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-md tdbc-mx-auto" style="max-width: 50ch">
-      A podcast where {{ meta.siteDescription }}
-    </h2>
+    <h2 class="tdbc-lead tdbc-content-maxlength--small tdbc-ink--light tdbc-mt-sm tdbc-mx-auto">A podcast where <a href="https://twitter.com/tackjhompson">Claire</a> and <a href="https://twitter.com/5t3ph">Steph</a>  talk about a bunch of things relating to being developers in the 21st century</h2>
   </div>
-  <div class="tdbc-row tdbc-row--center-content">
-    <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="https://podcasts.apple.com/us/podcast/word-wrap/id1539361688">
-      <img class="tdbc-button__icon" src="img/apple-podcasts.png" width="64" alt="Download on Apple Podcasts" />
-      Apple Podcasts
-    </a>
-    <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="/feed/feed.xml">
-      <img class="tdbc-button__icon" src="img/rss.svg" width="64" alt="" />
-      RSS
-    </a>
-  </div>
+  {% include "platforms.njk" %}
 </header>
-<main class="tdbc-container">
+<main class="tdbc-container tdbc-content-maxlength tdbc-mx-auto">
   {# <div class="tdbc-section">
     <div class="tdbc-card">
       <div class="tdbc-card__content tdbc-text-align--center">
@@ -54,9 +43,14 @@ templateEngineOverride: md, njk
   </div> #}
   
   <div class="tdbc-section tdbc-mt-lg">
-    <h2 class="tdbc-ink--secondary">Latest Episode</h2>
+    <h2 class="tdbc-ink--secondary">Latest Episode |&nbsp;<small><a href="/episodes/" class="tdbc-ink--primary">All&nbsp;Episodes</a></small></h2>
     {% set latest = true %}
     {% include 'episode-list.njk' %}
+  </div>
+
+  <div class="tdbc-section tdbc-mt-lg">
+    <h2 class="tdbc-ink--secondary">About the Hosts</h2>
+    <p>We've each been developers for over a decade and watched the web evolve while we - like many of you - tried to keep up. Our past involves working together at an in-house marketing agency, after which our paths diverged to areas such as insurance and financial tech, design systems leadership, front-end focused software engineering, and accessibility. We have got experience across the front-end spectrum, inclusive of HTML, CSS, JS, and the surrounding ecosystem of frameworks and systems. You can get to know us more on <a href="/about/">our About Us page</a>.</p>
   </div>
 
 {{ content | safe }}

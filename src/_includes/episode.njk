@@ -11,16 +11,7 @@ layout: base.njk
       {{ description }}
     </h2>
     <p>Recorded: {{ date | postDate }} • {{ lengthInSeconds | toMins }} min</p>
-    <div class="tdbc-row tdbc-row--center-content">
-      <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="https://podcasts.apple.com/us/podcast/word-wrap/id1539361688">
-        <img class="tdbc-button__icon" src="/img/apple-podcasts.png" width="64" alt="Download on Apple Podcasts" />
-        Apple Podcasts
-      </a>
-      <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="/feed/feed.xml">
-        <img class="tdbc-button__icon" src="/img/rss.svg" width="64" alt="" />
-        RSS
-      </a>
-    </div>
+    {% include "platforms.njk" %}
   </div>
 </header>
 <main class="tdbc-container">
@@ -33,5 +24,7 @@ layout: base.njk
       <source src="{{ podcastUrl }}" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio> #}
+
+    <a href="/episodes/" class="tdbc-button tdbc-button-outlined">View All Episodes</a>
   </article>
 </main>

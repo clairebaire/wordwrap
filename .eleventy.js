@@ -77,6 +77,10 @@ module.exports = function (eleventyConfig) {
     return Math.ceil(number / 60);
   });
 
+  eleventyConfig.addPairedShortcode("feature", function (content, img, alt = "") {
+    return `<div class="tdbc-feature"><img src="${img}" alt="${alt}" /> <div class="tdbc-feature__content">${content}</div></div>`;
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

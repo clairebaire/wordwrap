@@ -9,16 +9,7 @@ layout: base.njk
     <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-sm tdbc-mx-auto">
       {{ description }}
     </h2>
-    <div class="tdbc-row tdbc-row--center-content">
-      <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="https://podcasts.apple.com/us/podcast/word-wrap/id1539361688">
-        <img class="tdbc-button__icon" src="/img/apple-podcasts.png" width="64" alt="Download on Apple Podcasts" />
-        Apple Podcasts
-      </a>
-      <a class="tdbc-button tdbc-button-outlined tdbc-h4" href="/feed/feed.xml">
-        <img class="tdbc-button__icon" src="/img/rss.svg" width="64" alt="" />
-        RSS
-      </a>
-    </div>
+    {% include "platforms.njk" %}
   </div>
 </header>
 <main class="tdbc-container">
