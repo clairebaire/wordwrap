@@ -81,6 +81,14 @@ module.exports = function (eleventyConfig) {
     return `<div class="tdbc-feature"><img src="${img}" alt="${alt}" /> <div class="tdbc-feature__content">${content}</div></div>`;
   });
 
+  eleventyConfig.addFilter("hasTag", (tags, tag) => {
+    return tags.includes(tag);
+  });
+
+  eleventyConfig.addFilter("pluck", function (arr, selections, attr) {
+    return arr.filter((item) => selections.includes(item.data[attr]));
+  });
+
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
     html: true,

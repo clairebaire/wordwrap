@@ -113,7 +113,7 @@ blockquote {
 
   &:before,
   &:after {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
     color: tdbc-color("light");
     line-height: 1;
   }
