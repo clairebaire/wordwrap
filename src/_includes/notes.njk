@@ -1,0 +1,27 @@
+---
+layout: base.njk
+---
+{% include 'sitenav.njk' %}
+
+<header class="tdbc-hero">
+  <div class="tdbc-container">
+    <h1 class="tdbc-ink--primary tdbc-mb-none">{{ title }}</h1>
+    <h2 class="tdbc-lead tdbc-content-maxlength tdbc-ink--gray tdbc-mt-sm tdbc-mx-auto">
+      {{ description }}
+    </h2>
+    {% include "platforms.njk" %}
+  </div>
+</header>
+<main class="tdbc-container">
+  <ul class="tdbc-column-container tdbc-column-container--centered">
+    {%- for page in collections.notes | reverse -%}
+    <li class="tdbc-card">
+      <div class="tdbc-card__content">
+        <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
+        <p>{{ page.data.description }}</p>
+        <small>{{ page.date | postDate }}</small>
+      </div>
+    </li>
+    {%- endfor -%}
+  </ul>  
+</main>

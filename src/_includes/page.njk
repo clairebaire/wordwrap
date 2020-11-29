@@ -11,6 +11,13 @@ layout: base.njk
     </h2>
   </div>
 </header>
+{% if tags | hasTag('notes') %}
+<aside class="tdbc-container">
+  {% for episode in collections.episodes | pluck( [episodeNumber] , 'episodeNumber') %}
+    <p class="tdbc-mx-auto tdbc-h3 tdbc-ink--primary">🎁 Listen to <a href="{{ episode.url }}">{{ episode.data.title }}</a></p>
+  {% endfor %}
+</aside>
+{% endif %}
 <main class="tdbc-container">
   <article class="tdbc-mx-auto">
     {{ content | safe }}

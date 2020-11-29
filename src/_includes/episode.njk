@@ -17,9 +17,16 @@ layout: base.njk
 <main class="tdbc-container">
   <article class="tdbc-mx-auto">
     <p>{{ extendedDescription }}</p>
+
+    {% for note in collections.notes | pluck( [episodeNumber] , 'episodeNumber') %}
+      <p class="tdbc-mx-auto tdbc-lead tdbc-ink--primary">Check out the <a href="{{ note.url }}">{{ note.data.title }}</a></p>
+    {% endfor %}
     
     {{ content | safe }}
 
+    {% for note in collections.notes | pluck( [episodeNumber] , 'episodeNumber') %}
+      <p class="tdbc-mx-auto tdbc-h3 tdbc-ink--secondary tdbc-mt-md">Review the <a href="{{ note.url }}">{{ note.data.title }}</a></p>
+    {% endfor %}
     <a href="/episodes/" class="tdbc-button tdbc-button-outlined">View All Episodes</a>
   </article>
 </main>
