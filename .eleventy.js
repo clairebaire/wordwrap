@@ -74,7 +74,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("toMins", (number) => {
-    return Math.ceil(number / 60);
+    return (number / 60).toFixed(2).replace(".", ":");
   });
 
   eleventyConfig.addPairedShortcode("feature", function (content, img, alt = "") {
