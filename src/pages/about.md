@@ -14,7 +14,7 @@ Hi, I'm Stephanie Eckles - @5t3ph on [Twitter](https://twitter.com/5t3ph), [Gith
 
 ## About Claire
 
-{% feature 'https://pbs.twimg.com/profile_images/1277047918940356609/xueTbTjP_200x200.jpg' %}
+{% feature 'https://pbs.twimg.com/profile_images/1333131265055272962/kbR87of6_400x400.jpg' %}
 
 Hi, I'm Claire Lipskey! I'm on Twitter at [@tackjhompson](https://twitter.com/tackjhompson), and on [Github](https://github.com/clairebaire), [CodePen](https://codepen.io/clairebaire), and [DEV](https://dev.to/clairebaire) as @clairebaire. I can also be found at [lipskey.me](https://lipskey.me). I am a Senior Software Engineer at Kin Insurance in Chicago.
 
