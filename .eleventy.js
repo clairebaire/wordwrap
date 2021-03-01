@@ -73,8 +73,8 @@ module.exports = function (eleventyConfig) {
     return array;
   });
 
-  eleventyConfig.addFilter("toMins", (number) => {
-    return (number / 60).toFixed(2).replace(".", ":");
+  eleventyConfig.addFilter("toMins", (time) => {
+    return Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2);
   });
 
   eleventyConfig.addPairedShortcode("feature", function (content, img, alt = "") {
