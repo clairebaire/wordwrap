@@ -13,7 +13,7 @@ layout: base.njk
 </header>
 {% if tags | hasTag('notes') %}
 <aside class="tdbc-container">
-  {% for episode in collections.episodes | pluck( [episodeNumber] , 'episodeNumber') %}
+  {% for episode in collections.s1 | pluck( [episodeNumber] , 'episodeNumber') %}
     <p class="tdbc-mx-auto tdbc-h3 tdbc-ink--primary">🎁 Listen to <a href="{{ episode.url }}">{{ episode.data.title }}</a></p>
   {% endfor %}
 </aside>

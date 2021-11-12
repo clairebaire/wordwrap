@@ -13,8 +13,10 @@ layout: base.njk
   </div>
 </header>
 <main class="tdbc-container">
+
+  <h2>Season 1</h2>
   <ul class="tdbc-column-container tdbc-column-container--centered">
-    {%- for page in collections.notes | reverse -%}
+    {%- for page in collections["notes-s1"] | reverse -%}
     <li class="tdbc-card">
       <div class="tdbc-card__content">
         <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
