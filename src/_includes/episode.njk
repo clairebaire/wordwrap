@@ -21,6 +21,8 @@ layout: base.njk
     {% for note in collections.notes | pluck( [episodeNumber] , 'episodeNumber') %}
       <p class="tdbc-mx-auto tdbc-lead tdbc-ink--primary">Check out the <a href="{{ note.url }}">{{ note.data.title }}</a></p>
     {% endfor %}
+
+    {% include "support.njk" %}
     
     {{ content | safe }}
 

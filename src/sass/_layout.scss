@@ -8,17 +8,36 @@ body {
   font-family: $tdbc-font-family;
 }
 
+.logo {
+  font-size: 10vh;
+  position: relative;
+}
+
+.logo__emoji {
+  position: relative;
+  top: 10px;
+}
+
+.logo svg {
+  width: 100%;
+  height: 100%;
+}
+
 footer {
   margin-top: auto;
 }
 
 article {
-  max-width: 80ch;
+  max-width: var(--article-max-width, 80ch);
   width: 100%;
 
   > img {
     margin-right: auto;
     margin-left: auto;
+  }
+
+  &.article--wide {
+    --article-max-width: 100%;
   }
 }
 // stylelint-enable
@@ -36,7 +55,7 @@ article {
 .tdbc-column-container {
   display: grid;
   grid-gap: 2em;
-  grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
 
   &--centered {
     justify-items: center;
@@ -98,6 +117,11 @@ ul.tdbc-column-container {
 
   @media (min-width: 60ch) {
     grid-template-columns: min(20ch, 20vw) auto;
+  }
+
+  img {
+    aspect-ratio: 1;
+    border-radius: 50%;
   }
 
   :last-child {

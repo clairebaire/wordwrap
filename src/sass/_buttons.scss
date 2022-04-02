@@ -12,7 +12,7 @@
   transition-property: background, border;
   border-radius: math.div($tdbc-border-radius, 2);
   background-color: tdbc-color("primary");
-  color: #fff;
+  color: $tdbc-color-background;
   font-size: 1.125rem;
   line-height: 1.1;
   text-align: center;
