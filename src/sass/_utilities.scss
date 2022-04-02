@@ -69,3 +69,9 @@ $tdbc-alignments: left, center, right !default;
 .tdbc-mb-none {
   margin-bottom: 0;
 }
+
+.tdbc-promo {
+  padding: clamp(1rem, 5%, 3rem);
+  border-radius: 0.5rem;
+  border: 2px solid;
+}

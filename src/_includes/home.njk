@@ -1,25 +1,8 @@
 ---
 description:
 layout: base.njk
-templateEngineOverride: md, njk
 ---
 
-<style>
-  .logo {
-    font-size: 10vh;
-    position: relative;
-  }
-
-  .logo__emoji {
-    position: relative;
-    top: 10px;
-  }
-
-  .logo svg {
-    width: 100%;
-    height: 100%;
-  }
-</style>
 <header class="tdbc-hero">
   <div class="tdbc-container">
     <span class="logo">
@@ -31,26 +14,30 @@ templateEngineOverride: md, njk
   {% include "platforms.njk" %}
 </header>
 <main class="tdbc-container tdbc-content-maxlength tdbc-mx-auto">
-  {# <div class="tdbc-section">
-    <div class="tdbc-card">
-      <div class="tdbc-card__content tdbc-text-align--center">
-        <div class="tdbc-input">
-          <input type="text" class="tdbc-input__box">
-          <button class="tdbc-button tdbc-button--primary tdbc-button-outlined">Submit</button>
-        </div>
-      </div>
-    </div>
-  </div> #}
   
   <div class="tdbc-section tdbc-mt-lg">
     <h2 class="tdbc-ink--secondary">Latest Episode |&nbsp;<small><a href="/episodes/" class="tdbc-ink--primary">All&nbsp;Episodes</a></small></h2>
-    {% set latest = true %}
-    {% include 'episode-list.njk' %}
+    
+    <ul class="tdbc-container">
+    {%- for page in collections.episodes | latest(-1) | reverse -%}
+      <li class="tdbc-card tdbc-mt-sm">
+        <div class="tdbc-card__content">
+          <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
+          <p>{{ page.data.description }}</p>
+          <small>{{ page.date | postDate }}</small>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
   </div>
+
+  {% include "support.njk" %}
 
   <div class="tdbc-section tdbc-mt-lg">
     <h2 class="tdbc-ink--secondary">About the Hosts</h2>
-    <p>We've each been developers for over a decade and watched the web evolve while we - like many of you - tried to keep up. Our past involves working together at an in-house marketing agency, after which our paths diverged to areas such as insurance and financial tech, design systems leadership, front-end focused software engineering, and accessibility. We have got experience across the front-end spectrum, inclusive of HTML, CSS, JS, and the surrounding ecosystem of frameworks and systems. You can get to know us more on <a href="/about/">our About Us page</a>.</p>
+    <p class="tdbc-lead">We've each been developers for over a decade and watched the web evolve while we - like many of you - tried to keep up.</p>
+    
+    <p>Our past involves working together at an in-house marketing agency, after which our paths diverged to areas such as insurance and financial tech, design systems leadership, front-end focused software engineering, and accessibility. Now we're back together as SWE at Microsoft. We have experience across the front-end spectrum, inclusive of HTML, CSS, JS, and the surrounding ecosystem of frameworks and systems. You can get to know us more on <a href="/about/">our About Us page</a>.</p>
   </div>
 
 {{ content | safe }}
