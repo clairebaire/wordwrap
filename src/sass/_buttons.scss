@@ -10,6 +10,7 @@
   padding: 0.25em 1em;
   transition: 180ms ease-in-out;
   transition-property: background, border;
+  border: 2px solid transparent;
   border-radius: math.div($tdbc-border-radius, 2);
   background-color: tdbc-color("primary");
   color: $tdbc-color-background;
@@ -59,7 +60,7 @@
   }
 
   &-outlined {
-    border: 2px solid tdbc-color("primary");
+    border-color: tdbc-color("primary");
     background-color: transparent;
     color: tdbc-color("primary");
 

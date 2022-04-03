@@ -1,9 +1,25 @@
 @use "sass:math";
 
+form {
+  display: grid;
+  gap: 1rem;
+  max-width: 60ch;
+  justify-items: start;
+
+  label {
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+
+  button {
+    margin-top: 1rem;
+  }
+}
+
 .tdbc-input {
-  display: flex;
+  display: grid;
+  gap: 0.25rem;
   width: 100%;
-  gap: 0.5rem;
 
   .tdbc-input__box {
     appearance: none;
