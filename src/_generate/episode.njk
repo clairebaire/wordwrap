@@ -1,0 +1,24 @@
+---
+layout: episode
+pagination:
+  data: prismic.episode
+  size: 1
+  alias: episode
+  addAllPagesToCollections: true
+tags: episodes
+permalink:
+  build: /episodes/{{ episode.uid | epSlug }}/
+  preview: /preview/:uid/
+eleventyComputed:
+  title: "Ep. {{ episode.data.number }}: {% asText episode.data.title %}"
+  episodedate: "{{ episode.data.date }}"
+  episodeNumber: "{{ episode.data.number }}"
+  description: "{% asText episode.data.description %}"
+  extendedDescription: "{% asText episode.data.extended_description %}"
+  lengthInSeconds: "{{ episode.data.length }}"
+  season: "{{ episode.uid | epSeason }}"
+---
+
+<h2 id="transcript" tabindex="-1">Transcript<a class="tdbc-anchor" href="#transcript">#</a></h2>
+
+{% asHTML episode.data.transcript %}

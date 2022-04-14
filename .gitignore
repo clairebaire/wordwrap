@@ -2,11 +2,14 @@
 node_modules
 
 # build artefacts
+.netlify
 public
 src/css
 functions/*.json
 functions/*.html
 src/previews/*
+netlify/functions/preview/**
+!netlify/functions/preview/index.js
 
 # secrets and errors
 .env
