@@ -1,3 +1,4 @@
+require("dotenv").config();
 const emojiRegex = require("emoji-regex");
 const slugify = require("slugify");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -6,9 +7,28 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const { DateTime } = require("luxon");
 
-module.exports = function (eleventyConfig) {
+const prismicHtmlSerializer = require("./src/_includes/_11ty/prismicHtmlSerializer");
+const { pluginPrismic, definePrismicPluginOptions } = require("eleventy-plugin-prismic");
+
+const prismicPluginOptions = definePrismicPluginOptions({
+  endpoint: "wordwrap",
+  clientConfig: {
+    accessToken: process.env.PRISMIC,
+  },
+  preview: {
+    name: "preview",
+    functionsDir: "./netlify/functions/",
+  },
+  htmlSerializer: prismicHtmlSerializer,
+  linkResolver: (doc) => {
+    return `/${doc.uid}/`;
+  },
+});
+
+const config = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginPrismic, prismicPluginOptions);
 
   eleventyConfig.addWatchTarget("./src/sass/");
 
@@ -51,6 +71,20 @@ module.exports = function (eleventyConfig) {
     }).toLocaleString(DateTime.DATE_MED);
   });
 
+  eleventyConfig.addFilter("formatDate", (date) => {
+    const d = DateTime.fromISO(date);
+    return `${d.toFormat("LLL")} ${d.toFormat("d")}, ${d.toFormat("yyyy")}`;
+  });
+
+  eleventyConfig.addFilter("epSlug", (slug) => {
+    const [season, episode] = slug.split("-");
+    return `/${season}/${episode}/`;
+  });
+
+  eleventyConfig.addFilter("epSeason", (slug) => {
+    return slug.length ? slug.split("-")[0] : "";
+  });
+
   eleventyConfig.addFilter("pubDate", (dateObj) => {
     return DateTime.fromJSDate(dateObj, {
       zone: "America/Chicago",
@@ -58,9 +92,12 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("orderedEpisodes", function (collection) {
-    return collection.getFilteredByTag("episodes").sort((a, b) => {
-      return b.data.episodeNumber - a.data.episodeNumber;
-    });
+    return collection
+      .getFilteredByTag("episodes")
+      .filter((e) => e.data.episodeNumber)
+      .sort((a, b) => {
+        return b.data.episodeNumber - a.data.episodeNumber;
+      });
   });
 
   eleventyConfig.addFilter("latest", (array, n) => {
@@ -112,3 +149,7 @@ module.exports = function (eleventyConfig) {
     },
   };
 };
+
+config.prismicPluginOptions = prismicPluginOptions;
+
+module.exports = config;

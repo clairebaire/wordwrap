@@ -19,12 +19,12 @@ layout: base.njk
     <h2 class="tdbc-ink--secondary">Latest Episode |&nbsp;<small><a href="/episodes/" class="tdbc-ink--primary">All&nbsp;Episodes</a></small></h2>
     
     <ul class="tdbc-container">
-    {%- for page in collections.episodes | latest(-1) | reverse -%}
+    {%- for page in collections.orderedEpisodes | reverse | latest(-1) -%}
       <li class="tdbc-card tdbc-mt-sm">
         <div class="tdbc-card__content">
           <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
           <p>{{ page.data.description }}</p>
-          <small>{{ page.date | postDate }}</small>
+          <small>{% if page.data.episodedate %}{{ page.data.episodedate | formatDate }}{% else %}{{ page.date | postDate }}{% endif %}</small>
         </div>
       </li>
       {%- endfor -%}
