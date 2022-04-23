@@ -3,18 +3,9 @@ base = ""
 publish = "public"
 command = "AWS_LAMBDA_FUNCTION_NAME=trickpuppeteer npm run build"
 
+[dev]
+command = "npm start"
+
 [functions]
 node_bundler = "esbuild"
 
-[functions.preview]
-included_files = [
-"./netlify/functions/preview/**/*",
-"./netlify/functions/preview/.cache/**/*"
-]
-
-[[redirects]]
-from = "/preview/:uid/"
-to = "/.netlify/functions/preview"
-status = 200
-force = true
-_generated_by_eleventy_serverless = "preview"

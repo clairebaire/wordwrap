@@ -8,7 +8,6 @@ pagination:
 tags: episodes
 permalink:
   build: /episodes/{{ episode.uid | epSlug }}/
-  preview: /preview/:uid/
 eleventyComputed:
   title: "Ep. {{ episode.data.number }}: {% asText episode.data.title %}"
   episodedate: "{{ episode.data.date }}"
@@ -18,6 +17,22 @@ eleventyComputed:
   lengthInSeconds: "{{ episode.data.length }}"
   season: "{{ episode.uid | epSeason }}"
 ---
+
+{%- if episode.data.body %}
+  {%- set body = episode.data.body -%}
+
+  {%- set guests = body | guests -%}
+  {%- if guests.items %}
+  <h2>Episode Guests</h2>
+    {% for guest in guests.items %}
+    {% set guestImg = guest.headshot.url %}
+    <div class="tdbc-guest {{ 'tdbc-feature' if guestImg }}">
+      {%- if guestImg %}<img src="{{ guestImg }}">{% endif  -%}
+      {% asHTML guest.bio %}
+    </div>
+    {% endfor %}
+  {% endif -%}
+{% endif -%}
 
 <h2 id="transcript" tabindex="-1">Transcript<a class="tdbc-anchor" href="#transcript">#</a></h2>
 

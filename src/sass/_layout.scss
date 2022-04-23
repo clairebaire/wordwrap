@@ -119,6 +119,10 @@ ul.tdbc-column-container {
     grid-template-columns: min(20ch, 20vw) auto;
   }
 
+  & + .tdbc-feature {
+    margin-top: 5vh;
+  }
+
   img {
     aspect-ratio: 1;
     border-radius: 50%;

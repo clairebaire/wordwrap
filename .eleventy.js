@@ -15,14 +15,7 @@ const prismicPluginOptions = definePrismicPluginOptions({
   clientConfig: {
     accessToken: process.env.PRISMIC,
   },
-  preview: {
-    name: "preview",
-    functionsDir: "./netlify/functions/",
-  },
   htmlSerializer: prismicHtmlSerializer,
-  linkResolver: (doc) => {
-    return `/${doc.uid}/`;
-  },
 });
 
 const config = function (eleventyConfig) {
@@ -32,7 +25,6 @@ const config = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./src/sass/");
 
-  eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/fonts");
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
@@ -89,6 +81,17 @@ const config = function (eleventyConfig) {
     return DateTime.fromJSDate(dateObj, {
       zone: "America/Chicago",
     }).toHTTP();
+  });
+
+  eleventyConfig.addFilter("guests", (slices) => {
+    if (!slices) return "";
+
+    const guestData = slices.filter((slice) => slice.slice_type == "guests");
+    if (guestData.length) {
+      return guestData[0];
+    } else {
+      return false;
+    }
   });
 
   eleventyConfig.addCollection("orderedEpisodes", function (collection) {
