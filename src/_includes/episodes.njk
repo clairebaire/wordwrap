@@ -18,7 +18,7 @@ layout: base.njk
   <article class="article--wide">
     <h2>Season 2</h2>
     <ul class="tdbc-column-container">
-      {%- for page in s2 -%}
+      {%- for page in s2 | reverse -%}
       <li class="tdbc-card tdbc-mt-sm">
         <div class="tdbc-card__content">
           <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
