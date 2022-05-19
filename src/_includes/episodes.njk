@@ -15,7 +15,7 @@ layout: base.njk
 <main class="tdbc-container">
   {% set s2 = collections.episodes | pluck( 's2' , 'season') %}
   {% if s2 %}
-  <article>
+  <article class="article--wide">
     <h2>Season 2</h2>
     <ul class="tdbc-column-container">
       {%- for page in s2 -%}
