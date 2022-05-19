@@ -25,9 +25,8 @@
   }
 
   &:focus {
-    outline-color: transparent;
-    outline-style: solid;
-    box-shadow: 0 0 0 3px scale-color(tdbc-color("primary"), $lightness: -30%);
+    outline: 2px solid #fff;
+    outline-offset: 2px;
   }
 
   &--small {
